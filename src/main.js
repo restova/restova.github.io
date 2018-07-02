@@ -51,7 +51,7 @@ var params = {
   mouseTargetEasing: 0.66,
   mouseTargetEasingUp: 0.66,
   needsDrag: false,
-  fillColor: '#A52A2A',
+  fillColor: '#83604e',
   strokeColor: '#000'// 0.1
 };
 
