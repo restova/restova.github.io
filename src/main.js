@@ -226,8 +226,8 @@ function onDraw(ctx) {
   //circle(ctx, radius);
   //ctx.restore();
 
-  var headPosX = segment.point.x;
-  var headPosY = segment.point.y;
+  var headPosX = segment.point.x - thickness/2;
+  var headPosY = segment.point.y - thickness/2;
   var headImg = new Image;
   headImg.src = "assets/Untitled4.png";
   ctx.save();
