@@ -233,7 +233,15 @@ function onDraw(ctx) {
   headPosY += Math.sin(angle)*thickness;
 
   var headImg = new Image;
-  headImg.src = "assets/Untitled4.png";
+  if (!peaking)
+  {
+    headImg.src = "assets/Untitled4.png";
+  }
+  else {
+    var min = 1;
+    var max = 3;
+    headImg.src = "assets/Untitled" + (Math.floor(Math.random() * (max - min + 1)) + min) + ".png";
+  }
   ctx.save();
   ctx.translate(headPosX, headPosY);
   ctx.rotate(angle);
