@@ -108,7 +108,7 @@ var strokeWeight = 30;
 var prevEyeRotation = 0;
 var hue = 0;
 
-var padding = (thickness+strokeWeight)/2; 
+var padding = (thickness+strokeWeight)/2;
 var peaking = false;
 var prevPeaking = false;
 
@@ -217,8 +217,6 @@ setInterval(function() {
   physics.tick(1.0);
 }, 1000/60);
 
-var eye1Pos = new Point(), eye2Pos = new Point();
-
 function onDraw(ctx) {
 
   var segment = pathBody.segments[numPoints - 2];
@@ -227,42 +225,28 @@ function onDraw(ctx) {
   var shake = (Math.random()-Math.random()) * 10;
   var radius = Math.max(0, eyeJiggler.pos);//Math.max(0, 5 + (peaking ? 10 + shake : 1));
 
-  eye1Pos.x = segment.point.x;
-  eye1Pos.y = segment.point.y;
-  eye1Pos.x += Math.cos(angle)*thickness/2.4;
-  eye1Pos.y += Math.sin(angle)*thickness/2.4;
-  // eye1Pos.x -= Math.cos(angle-Math.PI/2)*thickness/6;
-  // eye1Pos.y -= Math.sin(angle-Math.PI/2)*thickness/6;
-
-  eye2Pos.x = segment.point.x;
-  eye2Pos.y = segment.point.y;
-  eye2Pos.x -= Math.cos(angle)*thickness/12;
-  eye2Pos.y -= Math.sin(angle)*thickness/12;
-  // eye2Pos.x -= Math.cos(angle-Math.PI/2)*thickness/6;
-  // eye2Pos.y -= Math.sin(angle-Math.PI/2)*thickness/6;
-
 // if (peaking) {
 //   ctx.shadowColor = '#f0c';
 //   ctx.shadowBlur = 20;
 //   ctx.shadowOffsetY = 5;
 // }
 
-  ctx.fillStyle = '#fff';// peaking ?  'hsl('+Math.round(hue)%360+', 100%, 50%)' : '#fff';
-  ctx.save();
-  ctx.translate(eye1Pos.x, eye1Pos.y);
-  ctx.rotate(angle);
-  ctx.scale(1, peaking ? 1 : eyeHeight.s);
-  circle(ctx, radius)
-  ctx.restore();
+  //ctx.fillStyle = '#fff';// peaking ?  'hsl('+Math.round(hue)%360+', 100%, 50%)' : '#fff';
+  //ctx.save();
+  //ctx.translate(eye1Pos.x, eye1Pos.y);
+  //ctx.rotate(angle);
+  //ctx.scale(1, peaking ? 1 : eyeHeight.s);
+  //circle(ctx, radius)
+  //ctx.restore();
 
-  ctx.save();
-  ctx.translate(eye2Pos.x, eye2Pos.y);
-  ctx.rotate(angle);
-  ctx.scale(peaking ? 1.2 : 1, peaking ? 1.2 : eyeHeight.s);
+  //ctx.save();
+  //ctx.translate(eye2Pos.x, eye2Pos.y);
+  //ctx.rotate(angle);
+  //ctx.scale(peaking ? 1.2 : 1, peaking ? 1.2 : eyeHeight.s);
   // circle(ctx, radius, peaking ? Math.PI*2 : 0, peaking ? Math.PI*0.8 : Math.PI*2);
-  circle(ctx, radius);
-  ctx.restore();
-  
+  //circle(ctx, radius);
+  //ctx.restore();
+
   ctx.shadowBlur = 0;
   ctx.shadowOffsetY = 0;
 
@@ -398,7 +382,7 @@ function setPositions() {
     var force = curParticle.force.length();
     if (force > maxForce) {
       curParticle.force.scale(force / maxForce);
-      
+
       force = maxForce;
     }
 
@@ -450,7 +434,7 @@ function updateAppearance() {
   if (peaking) {
     // document.body.className = Math.random() < 0.8 ? 'bg-a' : 'bg-b';
       document.body.className = frameCount % 3 != 0 ? 'bg-a' : 'bg-b';
-    
+
     if (!prevPeaking) {
       physics.drag = 0.2;
       pathMouth.opacity = 1;
@@ -531,7 +515,7 @@ function updatePaths() {
 }
 
 function buildGUI() {
-  
+
   var gui = new dat.GUI();
 
   gui.add(params, 'mouseXWidth', 0, 1);
@@ -550,7 +534,7 @@ function unSmooth() {
       var segment = path.segments[i];
       segment.handleIn = segment.handleOut = null;
     }
-  } 
+  }
 
 }
 
