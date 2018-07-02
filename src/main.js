@@ -229,15 +229,15 @@ function onDraw(ctx) {
   var headPosX = segment.point.x - thickness/2;
   var headPosY = segment.point.y - thickness/2;
 
-  headPosX += Math.cos(angle)*thickness;
-  headPosY += Math.sin(angle)*thickness;
+  headPosX -= Math.cos(angle)*thickness;
+  headPosY -= Math.sin(angle)*thickness;
 
   var headImg = new Image;
   headImg.src = "assets/Untitled4.png";
   ctx.save();
   ctx.translate(headPosX, headPosY);
   ctx.rotate(angle);
-  ctx.drawImage(headImg, 0, 0, thickness, thickness);
+  ctx.drawImage(headImg, 0, 0, thickness*1.2, thickness*1.2);
   ctx.restore();
 
   ctx.shadowBlur = 0;
