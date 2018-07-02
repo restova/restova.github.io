@@ -231,6 +231,7 @@ function onDraw(ctx) {
 
   headPosX += Math.sin(angle)*thickness/1.2;
   headPosY -= Math.sin(angle)*thickness * 2;
+  console.log(angle);
 
   var headImg = new Image;
   if (!peaking)
