@@ -226,10 +226,10 @@ function onDraw(ctx) {
   //circle(ctx, radius);
   //ctx.restore();
 
-  var headPosX = segment.point.x - thickness;
+  var headPosX = segment.point.x - thickness*1.1;
   var headPosY = segment.point.y - thickness;
 
-  headPosX += Math.cos(angle)*thickness/1.5;
+  headPosX += Math.cos(angle)*thickness/1.4;
   //headPosY += Math.sin(angle)*thickness/2.4;
 
   var headImg = new Image;
