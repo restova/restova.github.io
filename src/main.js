@@ -230,7 +230,9 @@ function onDraw(ctx) {
   var headPosY = segment.point.y;
   var headImg = new Image;
   headImg.src = "assets/Untitled4.png";
-  ctx.drawImage(img, headPosX, headPosY);
+  ctx.save();
+  ctx.drawImage(img, headPosX, headPosY, thickness, thickness);
+  ctx.restore();
 
   ctx.shadowBlur = 0;
   ctx.shadowOffsetY = 0;
