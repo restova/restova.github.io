@@ -229,9 +229,9 @@ function onDraw(ctx) {
   var headPosX = segment.point.x - thickness;
   var headPosY = segment.point.y - thickness;
 
-  headPosX += Math.sin(angle)*thickness/1.2;
-  headPosY -= Math.sin(angle)*thickness * 2;
-  console.log(angle);
+  headPosX += Math.sin(angle/2)*thickness;
+  headPosY -= Math.sin(angle/2)*thickness;
+
 
   var headImg = new Image;
   if (!peaking)
