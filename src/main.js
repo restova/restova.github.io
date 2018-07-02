@@ -229,7 +229,7 @@ function onDraw(ctx) {
   var headPosX = segment.point.x - thickness*1.1;
   var headPosY = segment.point.y - thickness;
 
-  headPosX += Math.cos(angle)*thickness/1.4;
+  headPosX += Math.cos(angle)*thickness/1.6;
   //headPosY += Math.sin(angle)*thickness/2.4;
 
   var headImg = new Image;
