@@ -198,11 +198,11 @@ setInterval(function() {
 
 function onDraw(ctx) {
 
-  var segment = pathBody.segments[numPoints - 2];
+  var segment = pathBody.segments[numPoints - 1];
   var angle = segment.angle + Math.PI/2;
 
-  var shake = (Math.random()-Math.random()) * 10;
-  var radius = Math.max(0, eyeJiggler.pos);//Math.max(0, 5 + (peaking ? 10 + shake : 1));
+  //var shake = (Math.random()-Math.random()) * 10;
+  //var radius = Math.max(0, eyeJiggler.pos);//Math.max(0, 5 + (peaking ? 10 + shake : 1));
 
 // if (peaking) {
 //   ctx.shadowColor = '#f0c';
@@ -225,6 +225,12 @@ function onDraw(ctx) {
   // circle(ctx, radius, peaking ? Math.PI*2 : 0, peaking ? Math.PI*0.8 : Math.PI*2);
   //circle(ctx, radius);
   //ctx.restore();
+
+  var headPosX = segment.point.x;
+  var headPosY = segment.point.y;
+  var headImg = new Image;
+  headImg.src = "assets/Untitled4.png";
+  ctx.drawImage(img, headPosX, headPosY);
 
   ctx.shadowBlur = 0;
   ctx.shadowOffsetY = 0;
@@ -528,6 +534,7 @@ window.view = view;
 var _draw = view.draw;
 view.draw = function() {
   _draw.call(this);
+
   if (firstRun) return;
   onDraw(this._context);
 }
