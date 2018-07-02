@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+
+
+  <script type="text/javascript" src="lib/paper.js"></script>
+  <!--<script type="text/javascript" src="lib/dat.gui.min.js"></script>-->
+  <script type="text/javascript" src="lib/Tween.js"></script>
+  <script type="text/javascript" src="lib/traer.js"></script>
+
+  <script type="text/javascript" src="lib/soundmanager2-nodebug-jsmin.js"></script>
+
+  <script type="text/javascript"  src="src/jiggler.js"></script>
+  <script type="text/paperscript" src="src/main.js" canvas="canvas"></script>
+
+  <link href="src/style.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <title>Staggering Asswolf</title>
+  <meta name="title" content="Staggering Asswolf" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Description" content="A website to remember." />
+  <meta name="viewport" content="initial-scale=0.6,user-scalable=no" />
+  <link rel="image_src" href="assets/poster.png" />
+</head>
+<body>
+
+  <canvas id="canvas" resize></canvas>
+
+  <div id="compat">
+    <!-- It's way better on a desktop. -->
+  </div>
+
+  <div id="shake">
+    Shake vigorously
+  </div>
+
+  <div id="warning">
+    <span class="english">WARNING: CONTAINS FLASHING IMAGES</span><br/>
+    <span class="chinese">&#21253;&#21547;&#38378;&#28865;&#30340;&#22270;&#20687;</span>
+  </div>
+
+  <div id="enquiries">
+    (<a href="http://staggeringbeauty.com">Staggering Beauty</a>)
+  </div>
+<script type="text/javascript">
+
+var embedButton = document.getElementById('embed-button');
+var embedShade = document.getElementById('embed');
+var embedText = document.getElementById('embed-text');
+
+embedButton.addEventListener('click', function(e) {
+  e.preventDefault();
+  embedShade.style.display = 'block';
+  return false;
+}, false);
+
+embedShade.addEventListener('click', function() {
+  embedShade.style.display = 'none';
+}, false);
+
+embedText.addEventListener('click', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  this.select();
+  return false;
+})
+</script>
+</body>
+</html>
