@@ -52,7 +52,7 @@ var params = {
   mouseTargetEasingUp: 0.66,
   needsDrag: false,
   fillColor: '#000',
-  strokeColor: '#a52a2a'// 0.1
+  strokeColor: '#000'// 0.1
 };
 
 
@@ -524,6 +524,7 @@ function clamp(v, lo, hi) {
 }
 
 // custom
+window.view = view;
 var _draw = view.draw;
 view.draw = function() {
   _draw.call(this);
