@@ -231,6 +231,8 @@ function onDraw(ctx) {
   var headImg = new Image;
   headImg.src = "assets/Untitled4.png";
   ctx.save();
+  ctx.translate(headPosX, headPosY);
+  ctx.rotate(angle);
   ctx.drawImage(img, headPosX, headPosY, thickness, thickness);
   ctx.restore();
 
