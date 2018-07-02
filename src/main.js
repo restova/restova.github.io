@@ -237,7 +237,7 @@ function onDraw(ctx) {
   ctx.save();
   ctx.translate(headPosX, headPosY);
   ctx.rotate(angle);
-  ctx.drawImage(headImg, 0, 0, thickness*1.2, thickness*1.2);
+  ctx.drawImage(headImg, 0, 0, thickness*2, thickness*2);
   ctx.restore();
 
   ctx.shadowBlur = 0;
