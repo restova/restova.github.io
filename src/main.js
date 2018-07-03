@@ -51,7 +51,7 @@ var params = {
   mouseTargetEasing: 0.66,
   mouseTargetEasingUp: 0.66,
   needsDrag: false,
-  fillColor: '#83604e',
+  fillColor: '#9b725d',
   strokeColor: '#000'// 0.1
 };
 
@@ -199,7 +199,8 @@ setInterval(function() {
 function onDraw(ctx) {
 
   var segment = pathBody.segments[numPoints - 1];
-  var angle = segment.angle + Math.PI/2;
+  var angle = segment.angle;// + Math.PI/2;
+  var rot_angle = segment.angle + Math.PI/2;
 
   //var shake = (Math.random()-Math.random()) * 10;
   //var radius = Math.max(0, eyeJiggler.pos);//Math.max(0, 5 + (peaking ? 10 + shake : 1));
@@ -226,19 +227,11 @@ function onDraw(ctx) {
   //circle(ctx, radius);
   //ctx.restore();
 
-  var headPosX = segment.point.x - thickness;
-  var headPosY = segment.point.y - thickness;
+  var headPosX = segment.point.x;
+  var headPosY = segment.point.y;
 
-  var new_angle = angle/2;
-  if (new_angle < -Math.PI/2)
-    new_angle = -Math.PI/2;
-
-  if (new_angle > Math.PI/2)
-    new_angle = Math.PI/2;
-
-  headPosX += Math.sin(new_angle)*thickness*1.8;
-  headPosY -= Math.sin(new_angle)*thickness*2.2;
-
+  headPosX -= (thickness*1.35) * Math.cos((Math.PI/2) + (Math.PI/4) + angle);
+  headPosY -= (thickness*1.5) * Math.sin((Math.PI/2) + (Math.PI/4) + angle);
 
   var headImg = new Image;
   if (!peaking)
@@ -252,7 +245,7 @@ function onDraw(ctx) {
   }
   ctx.save();
   ctx.translate(headPosX, headPosY);
-  ctx.rotate(angle);
+  ctx.rotate(rot_angle);
   ctx.drawImage(headImg, 0, 0, thickness*2, thickness*2);
   ctx.restore();
 
